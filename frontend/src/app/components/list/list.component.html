@@ -1,0 +1,3 @@
+<input type="text" placeholder="Filter by name" (keyup.enter)="filterResults(filter.value)" #filter>
+<button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+<p *ngFor="let item of filteredClients | async">{{ item.name }} - {{ item.tel }}</p>
