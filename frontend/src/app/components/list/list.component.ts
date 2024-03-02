@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.clients = this.apiService.getClients();
+    this.filteredClients = this.clients;
   }
 
   filterResults(text: string){
@@ -27,7 +28,7 @@ export class ListComponent implements OnInit {
     }
     this.filteredClients = this.clients
       .pipe(
-        map(clients => clients.filter(client => client.name.includes(text)))
+        map(clients => clients.filter(client => client.name.includes(text) || client.tel.includes(text)))
       )
   }
 }
