@@ -1,0 +1,9 @@
+<form [formGroup]="creditCardInfo">
+  <label>Code: <input type="text" id="code" formControlName="code" /></label>
+  <br/>
+  <label>CCV: <input type="text" id="ccv" formControlName="ccv" /></label>
+  <br/>
+  <label>date d'expiration: <input type="text" id="expiration-date" formControlName="expiration-date" /></label>
+  <br/>
+  <button type="submit" class="button" [disabled]="creditCardInfo.invalid">Submit</button>
+</form>

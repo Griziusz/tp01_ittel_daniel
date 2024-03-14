@@ -7,12 +7,13 @@ import { ListComponent } from './components/list/list.component';
 import { ApiService } from './api.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreditcardModule } from './creditcard/creditcard.module';
 
 
 
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule, HeaderComponent, FooterComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, HeaderComponent, FooterComponent, CreditcardModule],
   declarations: [AppComponent, ListComponent],
   bootstrap: [AppComponent],
   providers: [ApiService]
