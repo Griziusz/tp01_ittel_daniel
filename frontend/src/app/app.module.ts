@@ -10,6 +10,7 @@ import { CreditcardModule } from './creditcard/creditcard.module';
 import { RouterModule } from '@angular/router';
 import { ListComponent } from './components/list/list.component';
 import { AppRoutingModule } from './app.routes';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './app.routes';
     HeaderComponent,
     FooterComponent,
     ListComponent,
+    RegisterComponent,
     CreditcardModule],
   bootstrap: [AppComponent],
   providers: [ApiService]

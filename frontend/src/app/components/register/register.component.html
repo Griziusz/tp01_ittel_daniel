@@ -1,0 +1,78 @@
+<h2>Register</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstname">First Name: </label>
+    <input id="firstname" formControlName="firstname">
+    <div *ngIf="isInvalidControl('firstname', 'required')">
+      <small>First Name is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email: </label>
+    <input id="email" formControlName="email">
+    <div *ngIf="isInvalidControl('email', 'required')">
+      <small>Email is required.</small>
+    </div>
+    <div *ngIf="isInvalidControl('email', 'email')">
+      <small style="color: red;">Invalid email address.</small>
+    </div>
+  </div>
+  <div>
+    <label for="phone">Phone Number: </label>
+    <input id="phone" formControlName="phone">
+    <div *ngIf="isInvalidControl('phone', 'required')">
+      <small>Phone number is required.</small>
+    </div>
+    <div *ngIf="isInvalidControl('phone', 'pattern')">
+      <small>Invalid phone number. It should be 10 digits.</small>
+    </div>
+  </div>
+  <div>
+    <label for="address">Address: </label>
+    <input id="address" formControlName="address">
+    <div *ngIf="isInvalidControl('address', 'required')">
+      <small>Address is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="zipcode">Zip Code: </label>
+    <input id="zipcode" formControlName="zipcode">
+    <div *ngIf="isInvalidControl('zipcode', 'required')">
+      <small>Zip Code is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="city">City: </label>
+    <input id="city" formControlName="city">
+    <div *ngIf="isInvalidControl('city', 'required')">
+      <small>City is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="username">Username: </label>
+    <input id="username" formControlName="username">
+    <div *ngIf="isInvalidControl('username', 'required')">
+      <small>Username is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password">
+    <div *ngIf="isInvalidControl('password', 'required')">
+      <small>Password is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="confirm_password">Confirm Password: </label>
+    <input id="confirm_password" type="password" formControlName="confirm_password">
+    <div *ngIf="isInvalidControl('confirm_password', 'required')">
+      <small>Confirm Password is required.</small>
+    </div>
+    <div *ngIf="isInvalidControl('confirm_password', 'passwordMismatch')">
+      <small>Passwords must match.</small>
+    </div>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
