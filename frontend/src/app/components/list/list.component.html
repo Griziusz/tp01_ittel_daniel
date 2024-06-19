@@ -1,5 +1,5 @@
 <div id="list">
 <input class="search-button" type="text" placeholder="Search" (keyup.enter)="filterResults(filter.value)" #filter>
 <button class="primary search-button" type="button" (click)="filterResults(filter.value)">🔍</button>
-<p *ngFor="let item of filteredClients | async">{{ item.name }} - {{ item.tel }}</p>
+<p *ngFor="let item of list | async">{{ item.name }} - {{ item.tel }}</p>
 </div>

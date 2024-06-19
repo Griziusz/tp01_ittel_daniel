@@ -1,34 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, filter, from, map } from 'rxjs';
-import { Client } from '../../types/client';
-import { ApiService } from '../../api.service';
+import { Element } from '../../types/element';
+import { ApiService } from '../../services/api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list',
-  // standalone: true,
-  // imports: [],
+  imports: [CommonModule],
+  standalone: true,
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
 export class ListComponent implements OnInit {
 
-  clients : Observable<Client[]>
-  filteredClients : Observable<Client[]>
+  list : Observable<Element[]>;
+  query : string;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.clients = this.apiService.getClients();
-    this.filteredClients = this.clients;
+    this.fetchResults();
   }
 
   filterResults(text: string){
     if(!text) {
-      this.filteredClients = this.clients;
+      this.query = text;
     }
-    this.filteredClients = this.clients
-      .pipe(
-        map(clients => clients.filter(client => client.name.includes(text) || client.tel.includes(text)))
-      )
+    this.fetchResults();
+  }
+
+  fetchResults() {
+    this.list = this.apiService.getElements(this.query);
   }
 }
+

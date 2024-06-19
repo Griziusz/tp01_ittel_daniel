@@ -1,4 +1,4 @@
-export class Client {
+export class Element {
   name: string;
   tel: string;
 }
