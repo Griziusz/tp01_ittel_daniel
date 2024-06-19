@@ -43,9 +43,8 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value);
+      alert(JSON.stringify(this.form.value, null, 2));
     } else {
-      // Mark all fields as touched to display validation messages
       Object.keys(this.form.controls).forEach(field => {
         const control = this.form.get(field);
         control?.markAsTouched({ onlySelf: true });
