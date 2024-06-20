@@ -14,6 +14,6 @@ export class ApiService {
   public getElements(query : string) : Observable<Element[]>{
     let params = new HttpParams();
     params = params.set("query", query);
-    return this.http.get<Element[]>(environment.backendElements, {params});
+    return this.http.get<Element[]>('/api/list', {params});
   }
 }

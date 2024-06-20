@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Jean Dupont",
+    "email": "jean.dupont@example.com",
+    "phone_number": "06 12 34 56 78",
+    "address": "123 Rue de la Paix",
+    "zip_code": "75001",
+    "city": "Paris",
+    "username": "jeandupont",
+    "password": "password123"
+  },
+  {
+    "name": "Marie Curie",
+    "email": "marie.curie@example.com",
+    "phone_number": "06 98 76 54 32",
+    "address": "456 Avenue des Champs-Élysées",
+    "zip_code": "75008",
+    "city": "Paris",
+    "username": "mariecurie",
+    "password": "securepass456"
+  },
+  {
+    "name": "Luc Martin",
+    "email": "luc.martin@example.com",
+    "phone_number": "07 11 22 33 44",
+    "address": "789 Boulevard Saint-Germain",
+    "zip_code": "75006",
+    "city": "Paris",
+    "username": "lucmartin",
+    "password": "mypassword789"
+  },
+  {
+    "name": "Sophie Durand",
+    "email": "sophie.durand@example.com",
+    "phone_number": "06 55 44 33 22",
+    "address": "101 Rue de Rivoli",
+    "zip_code": "75004",
+    "city": "Paris",
+    "username": "sophiedurand",
+    "password": "durandpass321"
+  },
+  {
+    "name": "Pierre Lefevre",
+    "email": "pierre.lefevre@example.com",
+    "phone_number": "07 88 99 77 66",
+    "address": "202 Avenue Victor Hugo",
+    "zip_code": "75016",
+    "city": "Paris",
+    "username": "pierrelefevre",
+    "password": "lefevrepass654"
+  }
+]

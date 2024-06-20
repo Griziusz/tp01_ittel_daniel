@@ -1,10 +1,10 @@
 <h2>Register</h2>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
-    <label for="firstname">First Name: </label>
-    <input id="firstname" formControlName="firstname">
-    <div *ngIf="isInvalidControl('firstname', 'required')">
-      <small>First Name is required.</small>
+    <label for="name">Name: </label>
+    <input id="name" formControlName="name">
+    <div *ngIf="isInvalidControl('name', 'required')">
+      <small>Name is required.</small>
     </div>
   </div>
   <div>
@@ -14,7 +14,7 @@
       <small>Email is required.</small>
     </div>
     <div *ngIf="isInvalidControl('email', 'email')">
-      <small style="color: red;">Invalid email address.</small>
+      <small>Invalid email address.</small>
     </div>
   </div>
   <div>

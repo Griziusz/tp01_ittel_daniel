@@ -3,6 +3,6 @@
     <input class="search-button" type="text" placeholder="Search" (keyup.enter)="filterResults(filter.value)" #filter>
     <button class="primary search-button" type="button" (click)="filterResults(filter.value)">🔍</button>
     <ul>
-        <li *ngFor="let item of list | async">{{ item.name }} - {{ item.tel }}</li>
+        <li *ngFor="let item of list | async">{{ item.name }} - {{ item.email }}</li>
     </ul>
 </div>
