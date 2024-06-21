@@ -7,7 +7,7 @@ module.exports = app => {
   
 
     router.post("/login", utilisateur.login);
-    router.post("/register", utilisateur.login);
+    router.post("/register", utilisateur.register);
   
     app.use('/user', router);
   };

@@ -9,12 +9,11 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   standalone: true,
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
 })
 export class ListComponent implements OnInit {
 
   list : Observable<Element[]>;
-  query : string;
+  query : string = '';
 
   constructor(private apiService: ApiService) {}
 
@@ -23,13 +22,16 @@ export class ListComponent implements OnInit {
   }
 
   filterResults(text: string){
-    if(!text) {
+    console.log(text);
+    if(text != undefined) {
       this.query = text;
     }
+    console.log(this.query);
     this.fetchResults();
   }
 
   fetchResults() {
+    console.log(this.query);
     this.list = this.apiService.getElements(this.query);
   }
 }

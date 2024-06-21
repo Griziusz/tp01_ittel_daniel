@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { ListComponent } from './components/list/list.component';
 import { AppRoutingModule } from './app.routes';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
     FooterComponent,
     ListComponent,
     RegisterComponent,
+    LoginComponent,
+    HomeComponent,
     CreditcardModule],
   bootstrap: [AppComponent],
   providers: [ApiService]

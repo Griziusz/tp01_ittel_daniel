@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api.service';
+import { Element } from '../../types/element';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,9 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validator
 export class RegisterComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -43,7 +47,21 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      alert(JSON.stringify(this.form.value, null, 2));
+      const user: Element = {
+        name: this.form.value.name,
+        email: this.form.value.email,
+        phone_number: this.form.value.phone,
+        address: this.form.value.address,
+        zip_code: this.form.value.zip_code,
+        city: this.form.value.city,
+        username: this.form.value.username,
+        password: this.form.value.password
+      }
+      this.apiService.register(user).subscribe(
+        (response) => {
+          alert(JSON.stringify(response));
+        }
+      );
     } else {
       Object.keys(this.form.controls).forEach(field => {
         const control = this.form.get(field);

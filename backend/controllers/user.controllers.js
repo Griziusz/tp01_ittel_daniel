@@ -14,6 +14,10 @@ function getUserByLoginAndPassword(login, password) {
   return users.find(user => user.login === login && user.password === password);
 }
 
+function getUserByLogin(login) {
+  return users.find(user => user.login === login);
+}
+
 
 exports.login = (req, res) => {
   const { login, password } = req.body;
@@ -41,7 +45,7 @@ exports.login = (req, res) => {
 };
 
 exports.register = (req, res) => {
-  const {
+  const user = {
     name,
     email,
     phone_number,
@@ -51,7 +55,7 @@ exports.register = (req, res) => {
     username,
     password } = req.body;
 
-  const utilisateur = getUserByLoginAndPassword(login, password);
+  const utilisateur = getUserByLogin(user.username);
   if (!utilisateur) {
     const user = {
       id: uuidv4(),
