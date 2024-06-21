@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { Element } from '../types/element';
 
@@ -8,6 +8,8 @@ import { Element } from '../types/element';
   providedIn: 'root'
 })
 export class ApiService {
+
+  private jwtToken: string | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -36,6 +38,21 @@ export class ApiService {
       })
     };
 
-    return this.http.post<Element>('/api/user/register', user, httpOptions);
+    return this.http.post<Element>('/api/user/login', user, httpOptions)
+      .pipe(
+        tap((response: any) => {
+          if (response && response.accessToken) {
+            this.jwtToken = response.accessToken;
+          }
+        })
+      );
   }
+  public isConnected(): boolean {
+    return this.jwtToken !== null;
+  }
+
+  public logout(): void {
+    this.jwtToken = null;
+  }
+
 }

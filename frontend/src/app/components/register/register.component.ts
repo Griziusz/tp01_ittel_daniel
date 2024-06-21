@@ -12,7 +12,6 @@ import { Element } from '../../types/element';
     ReactiveFormsModule
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
 })
 
 export class RegisterComponent {

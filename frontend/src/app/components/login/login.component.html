@@ -1,5 +1,9 @@
 <h2>Login</h2>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <p>
+    "username": "jeandupont",
+    "password": "password123"
+  </p>
   <div>
     <label for="username">Username: </label>
     <input id="username" formControlName="username">
@@ -13,5 +17,8 @@
     <div *ngIf="isInvalidControl('password', 'required')">
       <small>Password is required.</small>
     </div>
+  </div>
+  <div>
+    <button type="submit" (click)="onSubmit()">Submit</button>
   </div>
 </form>

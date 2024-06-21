@@ -7,5 +7,5 @@ module.exports = app => {
    
     router.get("/",elements.get);
 
-    app.use('/list', router);
+    app.use('/list',/* checkJwt,*/ router);
   };

@@ -21,25 +21,17 @@ function getUserByLogin(login) {
 
 exports.login = (req, res) => {
   const { login, password } = req.body;
-
-  let pattern = /^[A-Za-z0-9]{1,20}$/;
-  if (pattern.test(login) && pattern.test(password)) {
-    const utilisateur = getUserByLoginAndPassword(login, password);
-    console.log(utilisateur);
-    if (utilisateur) {
-      const { id, login } = utilisateur;
-      const user = { id, login };
-      let accessToken = generateAccessToken(user);
-      res.setHeader('Authorization', `Bearer ${accessToken}`);
-      console.log(accessToken);
-    } else {
-      res.status(404).send({
-        message: "Utilisateur inexistant"
-      });
-    }
+  const utilisateur = getUserByLoginAndPassword(login, password);
+  console.log(utilisateur);
+  if (utilisateur) {
+    const { id, login } = utilisateur;
+    const user = { id, login };
+    let accessToken = generateAccessToken(user);
+    res.setHeader('Authorization', `Bearer ${accessToken}`);
+    console.log(accessToken);
   } else {
-    res.status(400).send({
-      message: "Login ou mot de passe invalide"
+    res.status(404).send({
+      message: "Utilisateur inexistant"
     });
   }
 };
@@ -53,7 +45,8 @@ exports.register = (req, res) => {
     zip_code,
     city,
     username,
-    password } = req.body;
+    password
+  } = req.body;
 
   const utilisateur = getUserByLogin(user.username);
   if (!utilisateur) {
